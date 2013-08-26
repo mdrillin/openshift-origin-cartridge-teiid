@@ -1,0 +1,6 @@
+metadata/
+env/
+env/OPENSHIFT_TEIID_LOG_DIR
+env/OPENSHIFT_TEIID_VERSION
+env/M2_HOME
+template/
