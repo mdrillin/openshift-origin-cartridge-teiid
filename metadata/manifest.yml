@@ -11,7 +11,7 @@ Cartridge-Vendor: jboss
 Source-Url: https://github.com/mdrillin/openshift-origin-cartridge-teiid.git
 Categories:
   - service
-  - web_proxy
+  - web_framework
 Website: http://www.jboss.org
 Help-Topics:
   "Developer Center": https://www.openshift.com/developers
