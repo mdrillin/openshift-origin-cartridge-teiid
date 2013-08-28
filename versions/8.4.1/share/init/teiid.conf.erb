@@ -1,0 +1,21 @@
+description "This is an upstart job file for Teiid"
+
+pre-start script
+bash << "EOF"
+  mkdir -p /var/log/teiid
+  chown -R teiid /var/log/teiid
+EOF
+end script
+
+start on started network-services
+stop on stopped network-services
+respawn
+
+limit nofile 4096 4096
+
+script
+bash << "EOF"
+  su - teiid
+  /opt/teiid/jboss/bin/standalone.sh <%= server_opts %> >> /var/log/teiid/teiid.log 2>&1
+EOF
+end script

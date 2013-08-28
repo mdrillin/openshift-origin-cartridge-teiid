@@ -615,20 +615,15 @@
 
 	<socket-binding-group name="standard-sockets"
 		default-interface="public" port-offset="0">
-		<socket-binding name="management-native" interface="management"
-			port="${env.OPENSHIFT_TEIID_MANAGEMENT_NATIVE_PORT}" />
-		<socket-binding name="management-http" interface="management"
-			port="${env.OPENSHIFT_TEIID_MANAGEMENT_HTTP_PORT}" />
+                <socket-binding name="management-native" interface="management" port="9999"/>
+                <socket-binding name="management-http" interface="management" port="9990"/>
 
 		<socket-binding name="http" port="${env.OPENSHIFT_TEIID_HTTP_PORT}" />
-		<socket-binding name="jacorb" interface="unsecure"
-			port="3528" />
-		<socket-binding name="jacorb-ssl" interface="unsecure"
-			port="3529" />
+		<socket-binding name="jacorb" interface="unsecure" port="3528" />
+		<socket-binding name="jacorb-ssl" interface="unsecure" port="3529" />
 		<socket-binding name="jgroups-tcp" port="${env.OPENSHIFT_TEIID_CLUSTER_PORT}" />
 		<socket-binding name="messaging" port="${env.OPENSHIFT_TEIID_MESSAGING_PORT}" />
-		<socket-binding name="osgi-http" interface="management"
-			port="8090" />
+		<socket-binding name="osgi-http" interface="management" port="8090" />
 		<socket-binding name="remoting" port="${env.OPENSHIFT_TEIID_REMOTING_PORT}" />
 		<socket-binding name="txn-recovery-environment" port="4712" />
 		<socket-binding name="txn-status-manager" port="4713" />
@@ -638,4 +633,5 @@
 			<remote-destination host="localhost" port="25" />
 		</outbound-socket-binding>
 	</socket-binding-group>
+
 </server>
