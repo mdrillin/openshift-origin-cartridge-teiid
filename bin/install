@@ -15,7 +15,6 @@ mv ${OPENSHIFT_TEIID_DIR}/versions/${version}/share/* ${OPENSHIFT_TEIID_DIR}/sha
 mv ${OPENSHIFT_TEIID_DIR}/versions/${version}/jboss/modules ${OPENSHIFT_TEIID_DIR}/jboss
 mv ${OPENSHIFT_TEIID_DIR}/versions/${version}/jboss/jboss-modules.jar ${OPENSHIFT_TEIID_DIR}/jboss
 cp ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone.xml ${OPENSHIFT_TEIID_DIR}/template/.openshift/config
-cp ${OPENSHIFT_TEIID_DIR}/versions/${version}/standalone/configuration/standalone.xml ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml
 cp ${OPENSHIFT_TEIID_DIR}/versions/${version}/standalone/deployments/vdbmanager-1.0.war ${OPENSHIFT_TEIID_DIR}/standalone/deployments/vdbmanager.war
 cp ${OPENSHIFT_TEIID_DIR}/versions/${version}/standalone/deployments/webquery-1.0.war ${OPENSHIFT_TEIID_DIR}/standalone/deployments/webquery.war
 

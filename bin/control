@@ -194,7 +194,7 @@ function start() {
   if isrunning; then
       echo "Application is already running"
   else    
-    ${TEIID_BIN_DIR}/standalone.sh -c standalone-teiid.xml > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
+    ${TEIID_BIN_DIR}/standalone.sh > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
     PROCESS_ID=$!
     echo "$PROCESS_ID" > ${TEIID_PID_FILE}
     if ! ishttpup; then
