@@ -11,6 +11,5 @@ mkdir -p ${OPENSHIFT_TEIID_DIR}/{template,standalone/tmp,standalone/deployments,
 
 # Copy the version specific files up to TEIID directory
 cp -r ${OPENSHIFT_TEIID_DIR}/versions/${version}/standalone/configuration/* ${OPENSHIFT_TEIID_DIR}/standalone/configuration
-cp ${OPENSHIFT_TEIID_DIR}/versions/${version}/standalone/configuration/standalone.xml ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml
 cp ${OPENSHIFT_TEIID_DIR}/versions/${version}/bin/* ${OPENSHIFT_TEIID_DIR}/bin
 cp -r ${OPENSHIFT_TEIID_DIR}/versions/${version}/modules/org/* ${OPENSHIFT_TEIID_DIR}/modules_ext/org

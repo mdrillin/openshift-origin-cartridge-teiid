@@ -190,16 +190,11 @@ function start() {
     export ENABLE_JPDA=1
   fi
 
-  # copy standalone-teiid.xml from datadir, so state is saved
-  #if [ -f "${OPENSHIFT_DATA_DIR}/standalone-teiid.xml" ]; then
-  #    cp -f ${OPENSHIFT_DATA_DIR}/standalone-teiid.xml ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml
-  #fi
-
   # Check for running app
   if isrunning; then
       echo "Application is already running"
   else    
-    ${TEIID_BIN_DIR}/standalone.sh -c standalone-teiid.xml > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
+    ${TEIID_BIN_DIR}/standalone.sh > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
     PROCESS_ID=$!
     echo "$PROCESS_ID" > ${TEIID_PID_FILE}
     if ! ishttpup; then
@@ -214,9 +209,9 @@ function stop() {
   echo "Stopping $cartridge_type cart"
   
   if isrunning; then
-           # copy standalone-teiid.xml to datadir, so state is saved
-           if [ -f "${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml" ]; then
-              cp -f ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml ${OPENSHIFT_REPO_DIR}/.openshift/config/standalone-teiid.xml
+           # copy standalone.xml to repo, so state is saved on restart
+           if [ -f "${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone.xml" ]; then
+              cp -f ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone.xml ${OPENSHIFT_REPO_DIR}/.openshift/config/standalone.xml
            fi
 		if [ -f "$TEIID_PID_FILE" ]; then
 			pid=$(cat $TEIID_PID_FILE);
