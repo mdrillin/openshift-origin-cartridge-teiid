@@ -191,9 +191,9 @@ function start() {
   fi
 
   # copy standalone-teiid.xml from datadir, so state is saved
-  if [ -f "${OPENSHIFT_DATA_DIR}/standalone-teiid.xml" ]; then
-      cp ${OPENSHIFT_DATA_DIR}/standalone-teiid.xml ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml
-  fi
+  #if [ -f "${OPENSHIFT_DATA_DIR}/standalone-teiid.xml" ]; then
+  #    cp -f ${OPENSHIFT_DATA_DIR}/standalone-teiid.xml ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml
+  #fi
 
   # Check for running app
   if isrunning; then
@@ -216,7 +216,7 @@ function stop() {
   if isrunning; then
            # copy standalone-teiid.xml to datadir, so state is saved
            if [ -f "${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml" ]; then
-              cp ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml ${OPENSHIFT_DATA_DIR}/standalone-teiid.xml
+              cp -f ${OPENSHIFT_TEIID_DIR}/standalone/configuration/standalone-teiid.xml ${OPENSHIFT_REPO_DIR}/.openshift/config/standalone-teiid.xml
            fi
 		if [ -f "$TEIID_PID_FILE" ]; then
 			pid=$(cat $TEIID_PID_FILE);
